@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Digite o nome da rua/avenida/vila onde você mora: <input type="text" id="input_logradouro">
+    <br>
+    Digite o número de sua residência: <input type="text" id="input_numero">
+    <br>
+    <button onclick="onde()">Onde eu moro</button>
+</body>
+
+</html>
+
+<script>
+    function onde(){
+        alert(`Seu logradouro é ${input_logradouro.value}`);
+        alert(`O número do seu logradouro é ${input_numero.value}`);
+    }
+        
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Boa tarde amigos da <i><b>Equipe Lantra</b></i></h1>
+    <br>
+    Qual o valor da pizza? <input type="text" id="input_valor">
+    <br>
+    Em quantos vocês estão? <input type="text" id="input_amigos">
+    <br>
+    <button onclick="calc()"><i>#lovePizza</i></button>
+</body>
+
+</html>
+
+<script>
+    function calc(){
+        alert("Cada um dos "+input_amigos.value+" amigos vai pagar R$"+(Number(input_valor.value)/Number(input_amigos.value)));
+    }
+</script>
