@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual o sabor da pizza? <input id="input_sabor_pizza"><br>
+    Qual o preço da pizza? <input type="number" id="input_preco_pizza"><br>
+    Quantos amigos vão comer a pizza? <input type="number" id="input_amigos"><br>
+    <button onclick="calcVlrAmg()">Ver valor por amigo</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function calcVlrAmg(){
+        var sabor = input_sabor_pizza.value;
+        var preco = Number(input_preco_pizza.value);
+        var amigos = Number(input_amigos.value);
+
+        var valorPorAmigo = (preco*.10 + preco) / amigos;
+
+        conteudo.innerHTML = `
+        Cada amigo vai colaborar com R$${valorPorAmigo} para a pizza de ${sabor}.
+        `
+    }
+</script>

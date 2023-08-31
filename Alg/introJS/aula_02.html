@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    Número 1<input type="number" id="input_n1">
+    <br>
+    Número 2<input type="number" id="input_n2">
+    <br>
+    <button onclick="somar(input_n1.value, input_n2.value)">+</button>
+    <button onclick="subtrair()">-</button>
+    <br>
+    <button onclick="multiplicar()">*</button>
+    <button onclick="dividir()">/</button>
+
+</body>
+</html>
+
+<script>
+    function multiplicar(){
+        alert(`
+        O produto de ${input_n1} & ${input_n2} resultou em: ${(input_n1.value * input_n2.value)}
+        `);//template string
+
+        //alert("O produto de "+input_n1.value+" & "+input_n2.value+" Resultou em: "+(input_n1.value * input_n2.value));
+    }
+    function dividir(){
+        alert("A razão de "+input_n1.value+" & "+input_n2.value+" Resultou em: "+(input_n1.value / input_n2.value));
+    }
+    function subtrair(){
+        alert("A subtração de "+input_n1.value+" & "+input_n2.value+" Resultou em: "+(input_n1.value - input_n2.value));
+    }
+    function somar(n1,n2){
+        alert("A soma de "+n1+" & "+n2+" Resultou em: "+ (Number(n1)+Number(n2)));
+    }
+</script>

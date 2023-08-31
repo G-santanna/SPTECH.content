@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas latinhas de <i>refri</i> você toma por dia? <input type="number" id="input_latas">
+    <button onclick="latinhasPorAno()">Quantos refris?</button>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function latinhasPorAno(){
+        var latinhas = Number(input_latas.value);
+        conteudo.innerHTML = `
+        Você toma ${latinhas*365} por ano!
+        `
+        if(latinhas*365 >= 500){
+            conteudo.innerHTML += `Cuidado com a diabetes!`
+        }
+    }
+</script>

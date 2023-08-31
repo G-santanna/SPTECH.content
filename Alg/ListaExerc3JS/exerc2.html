@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Votos do candidato A: <input type="number" id="input_votos_cand_A"><br>
+    Votos do candidato B: <input type="number" id="input_votos_cand_B"><br>
+    Votos brancos: <input type="number" id="input_votos_brancos"><br>
+    Votos nulos: <input type="number" id="input_votos_nulos"><br>
+
+    <button onclick="resulEle()">Resultado da eleição</button>
+
+    <div id="conteudo">
+
+    </div>
+</body>
+</html>
+<script>
+    function resulEle(){
+        var votosCandidatoA = Number(input_votos_cand_A.value);
+        var votosCandidatoB = Number(input_votos_cand_B.value);
+        var votosBrancosNulos = Number(input_votos_brancos.value) + Number(input_votos_nulos.value); 
+        var totalVotos = (votosCandidatoA + votosCandidatoB + votosBrancosNulos);
+
+        conteudo.innerHTML = `
+        Total de votos: <u>${totalVotos}</u><br>
+        Candidato A: ${votosCandidatoA / totalVotos * 100}% (${votosCandidatoA} votos)<br>
+        Candidato B: ${votosCandidatoB / totalVotos * 100}% (${votosCandidatoB} votos)<br>
+        Inválidos: ${votosBrancosNulos / totalVotos * 100}% (${votosBrancosNulos} votos)<br>
+        `;
+    }
+</script>
