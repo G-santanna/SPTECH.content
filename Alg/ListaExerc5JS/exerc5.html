@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira a nota 1 <input type="number" id="input_n1"><br>
+    Insira a nota 2 <input type="number" id="input_n2"><br>
+    <button onclick="verificarSitu()">Verificar situação</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function verificarSitu(){
+        var nota1 = Number(input_n1.value);
+        var nota2 = Number(input_n2.value);
+
+        if((nota1+nota2)/2 >= 6){
+            conteudo.innerHTML = `
+            Parabéns, aprovado!
+            `
+        }else{
+            conteudo.innerHTML = `
+            Tente outra vez...
+            `
+        }
+    }
+</script>

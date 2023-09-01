@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira a quantidade de chocolates comprados <input type="number" id="input_chocolates"><br>
+    <button onclick="comprar()">Compra</button>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function comprar(){
+        var qtdChoco = Number(input_chocolates.value);
+        
+        if(qtdChoco > 12){
+            var precoFinal = qtdChoco * 2.5;
+        }else{
+            var precoFinal = qtdChoco * 3;
+        }
+        conteudo.innerHTML = `
+        o valor da sua compra foi de ${precoFinal}
+        `
+    }
+</script>

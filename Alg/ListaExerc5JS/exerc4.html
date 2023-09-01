@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Insira a frequência do aluno
+    <input type="number" name="" id="input_frequencia" /><br />
+    <button onclick="verificarFreq()">Analisar frequência</button><br />
+    <div id="conteudo"></div>
+  </body>
+</html>
+<script>
+  function verificarFreq() {
+    var freq = Number(input_frequencia.value);
+    if (freq >= 50) {
+      conteudo.innerHTML = `
+            <img height= 100px; src="https://img.freepik.com/fotos-gratis/turista-apontando-para-cima_1368-7017.jpg?w=2000"/>
+            `;
+    } else {
+      conteudo.innerHTML = `
+            <img height=100px; src="https://3.bp.blogspot.com/-CacavTf2kos/Tp7HQ5VlF3I/AAAAAAAAAAk/JDOm8Z61GDo/s1600/Aluno"/>
+            `;
+    }
+  }
+</script>

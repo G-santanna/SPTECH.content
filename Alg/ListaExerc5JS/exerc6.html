@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite a temperatura do ambiente <input type="number" id="input_temperatura"><br>
+    <button onclick="verificarClima()">Verificar clima</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function verificarClima(){
+        var temperatura = Number(input_temperatura.value);
+
+        if(temperatura < 10){
+            conteudo.innerHTML = `
+            <img style="height: 100px"; src="https://assets.folhavitoria.com.br/images/acdd88d0-3e69-0136-6560-6231c35b6685--minified.jpg" />
+            `
+        }else{
+            conteudo.innerHTML = `
+            <img style="height: 100px"; src="https://segredosdomundo.r7.com/wp-content/uploads/2021/06/comida-estragada-principais-sinais-de-contaminacao-dos-alimentos-1.jpg" />
+            `
+        }
+    }
+</script>
