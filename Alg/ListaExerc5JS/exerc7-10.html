@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Saldo no banco: <input type="number" id="input_saldo" /><br />
+    <button onclick="verificarFinancas()">Verificar finanças</button><br />
+    <div id="conteudo"></div>
+  </body>
+</html>
+<script>
+  function verificarFinancas() {
+    var saldo = Number(input_saldo.value);
+
+    if (saldo == 0) {
+      conteudo.innerHTML = "Conta zerada";
+    } else {
+      if (saldo < 0) {
+        conteudo.innerHTML = `Está devendo!`;
+      }else{
+        conteudo.innerHTML = `Saldo positivo! :)`;
+      }
+    }
+  }
+</script>
