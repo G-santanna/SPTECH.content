@@ -15,7 +15,7 @@
 <script>
   function verificarFreq() {
     var freq = Number(input_frequencia.value);
-    if (freq >= 50) {
+    if (freq < 50) {
       conteudo.innerHTML = `
             <img height= 100px; src="https://img.freepik.com/fotos-gratis/turista-apontando-para-cima_1368-7017.jpg?w=2000"/>
             `;

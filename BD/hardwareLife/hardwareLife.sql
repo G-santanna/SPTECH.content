@@ -1,18 +1,19 @@
-CREATE DATABASE bd_HardwareLife;
-USE bd_HardwareLife;
+CREATE DATABASE HardwareLife;
+
+USE HardwareLife;
 
  -- TABELA PARA ADMINISTRAÇÃO -- 
  
-CREATE TABLE tb_admin(
+CREATE TABLE administrador(
 	id_admin int primary key auto_increment,
     email_admin varchar(40),
-    nome_cliente varchar(40),
+    nome_admin varchar(40),
     senha varchar(40)
 );
 
  -- TABELA PARA CONTROLE E CADASTRO DE EMPRESAS CLIENTES --
  
- CREATE TABLE tb_empresa(
+ CREATE TABLE empresa(
 	id_empresa int primary key auto_increment,
 	cnpj char(18),
     id_endereco int,
@@ -24,18 +25,25 @@ CREATE TABLE tb_admin(
 
  -- TABELA PARA CONTROLE E LOGIN DE CLEINTES --
  
-CREATE TABLE tb_cliente(
-	id_cliente int primary key auto_increment,
-    email_cliente varchar(50),
-    nome_cliente varchar(40),
-    cnpj varchar(18),
+CREATE TABLE funcionario_empresa(
+	id_funcionario_empresa int primary key auto_increment,
+    email_funcionario_empresa varchar(50),
+    id_empresa int,
+    nome_funcionario_empresa varchar(40),
+    cpf varchar(18),
     senha varchar(40)
 );
 
  -- TABELA DE DADOS DO SENSOR --
 
-CREATE TABLE tb_dados(
-	data_hora dateTime primary key,
+CREATE TABLE dados(
+	registro int primary key auto_increment,
+    nome_sensor varchar(40),
+    id_empresa int,
+    pos_y_sensor int,
+    pos_x_sensor int,
+    pos_z_sensor int,
     temperatura double,
-    umidade double
+    umidade double,
+    data_hora dateTime default current_timestamp
 );
