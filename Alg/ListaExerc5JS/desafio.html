@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fui desafiado pelo Leonel</title>
+</head>
+<body>
+    Salário Mensal <input type="number" id="inputSalarioMensal"><br>
+    Dias trabalhados no mês <input type="number" id="inputDiasMes"><br>
+    Férias vencidas <input id="inputFeriasVencidas"><br>
+    Férias proporcionais <input id="inputFeriasProporcionais"><br>
+    Meses trabalhados no ano <input type="number" id="inputMesesAno"><br>
+    <button onclick="calc()">Calcular recisão</button>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function calc(){
+        var saldoSalario = Number(inputSalarioMensal.value/30*inputDiasMes.value);
+        var feriasVencidas = inputFeriasVencidas.value;
+        var feriasProporcionais = inputFeriasProporcionais.value;
+
+        var acrescimoFeriasVencidas = salario*1/3;
+    }
+</script>
