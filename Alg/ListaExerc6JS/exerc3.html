@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira a temperatura <input type="number" id="input_temperatura"><br>
+    <button onclick="verificarClima()">Verificar clima</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function verificarClima(){
+        var temperatura = Number(input_temperatura.value);
+
+    if(temperatura < 14){
+        conteudo.innerHTML = "Congelante";
+    }else if(temperatura <= 21){
+        conteudo.innerHTML = "Com Frio";
+    }else if(temperatura <= 24){
+        conteudo.innerHTML = "Confortável";
+    }else if(temperatura <= 31){
+        conteudo.innerHTML = "Com Calor";
+    }else{
+        conteudo.innerHTML = "Calor Escaldante";
+    }
+    }
+</script>

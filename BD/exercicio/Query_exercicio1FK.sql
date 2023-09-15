@@ -38,7 +38,7 @@ UPDATE Atleta SET idPais = 4 WHERE idAtleta = 5;
 
 SELECT a.nome, p.nome FROM Atleta as a JOIN Pais as p ON a.idPais = p.idPais;
 
-
-
 SELECT a.nome, a.modalidade, a.qtdMedalha, p.nome, p.capital FROM Atleta as a JOIN Pais as p ON a.idPais = p.idPais;
+
+SELECT a.nome, a.modalidade, a.qtdMedalha, p.nome, p.capital FROM Atleta as a JOIN Pais as p ON a.idPais = p.idPais WHERE p.capital = 'Brasília';
 

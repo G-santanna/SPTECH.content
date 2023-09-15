@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira sua altura(em CM) <input type="number" id="input_altura"><br>
+    <button onclick="verificarAltura()">Verificar Altura</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function verificarAltura(){
+        var altura = Number(input_altura.value);
+
+        if(altura <= 165){
+            conteudo.innerHTML = "Você pode ser piloto de corrida";
+        }else if(altura <= 180){
+            conteudo.innerHTML = "Você pode ser jogador de futebol";
+        }else{
+            conteudo.innerHTML = "Você pode ser jogador de vôlei ou basquete";
+        }
+    }
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantos pães franceses você ingere por dia? <input type="number" id="input_paes"><br>
+    Quantos pacotes de bolacha recheada você ingere por dia? <input type="number" id="input_bolacha"><br>
+    Quantos copos de achocolatado você ingere por dia? <input type="number" id="input_achocolatado"><br>
+    <button onclick="verifyCal()">Verificar calorias</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function verifyCal(){
+        var paes = Number(input_paes.value);
+        var bolacha = Number(input_bolacha.value);
+        var achocolatado = Number(input_achocolatado.value);
+
+        var calorias = (paes*50)+(bolacha*80)+(achocolatado*70);
+
+        if(calorias < 200){
+            conteudo.innerHTML = "Parabéns, vai ficar em forma !";
+        }else if(calorias <= 400){
+            conteudo.innerHTML = "Cuidado, vai ficar menos saudável !";
+        }else{
+            conteudo.innerHTML = "Alerta crítico de saúde !!!";
+        }
+    }
+</script>

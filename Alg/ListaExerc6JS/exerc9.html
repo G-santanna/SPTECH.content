@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual a sua meta de economia? <input type="number" id="input_meta"><br>
+    Quanto você tem guardado? <input type="number" id="input_save"><br>
+    <button onclick="analisarEconomia()">Analisar economia</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function analisarEconomia(){
+        var meta = Number(input_meta.value);
+        var saves = Number(input_save.value);
+        
+        if(meta < saves){
+            conteudo.innerHTML = "Parabéns, meta alcançada! Meta ultrapassada em "+(saves - meta);
+        }else if(meta == saves){
+            conteudo.innerHTML = "Parabéns, meta alcançada!";
+        }else{
+            conteudo.innerHTML = "Força! Ainda em busca da meta! Falta "+(meta-saves);
+        }
+    }
+</script>

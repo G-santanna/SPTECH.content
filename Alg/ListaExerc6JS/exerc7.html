@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual valor você economizou? <input type="number" id="input_economia"><br>
+    <button onclick="poderCompra()">Poder de compra</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function poderCompra(){
+        var economia = Number(input_economia.value);
+
+        if(economia <= 0){
+            conteudo.innerHTML = "Nada de compras triste";
+        }else if(economia <= 100){
+            conteudo.innerHTML = "Viajem de ida e volta pra Praia Grande";
+        }else if(economia < 4000){
+            conteudo.innerHTML = "Exibir Viajem de ida e volta pra Praia Grande <br> Uma boa moto usada"
+        }else{
+            conteudo.innerHTML = "Exibir Viajem de ida e volta pra Praia Grande <br> Uma boa moto usada <br> Mais alguma bobagem legal "
+        }
+    }
+</script>

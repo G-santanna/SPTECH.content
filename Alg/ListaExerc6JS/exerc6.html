@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual seu time do coração <input type="text" id="input_time"><br>
+    <button onclick="time()">Fale sobre esse time</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function time(){
+        var time = input_time.value;
+
+        if(time == "Corinthians"){
+            conteudo.innerHTML = '<p style="background-color: black; color: white;">Salve o Corinthians</p>';
+        }else if(time == "Palmeiras"){
+            conteudo.innerHTML = '<p style="background-color: green; color: white;">Salve o alviverde imponente</p>'
+        }else if(time == "Santos"){
+            conteudo.innerHTML = '<p style="background-color: white; color: black;">Agora quem dá a bola é o Santos</p>'
+        }else{
+            conteudo.innerHTML = '<p style="background-color: red; color:white;">Salve o Tricolor paulista</p>'
+        }
+    }
+</script>
