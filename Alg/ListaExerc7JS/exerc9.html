@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite a altura inicial <input type="number" id="input_altura1"><br>
+    Digite a altura final <input type="number" id="input_altura2"><br>
+    Digite o nome do piloto <input id="input_nome"><br>
+    Digite a altura do piloto <input type="number" id="input_alturaP"><br>
+    <button onclick="verificarSitu()">Verificar situação</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function verificarSitu(){
+        var alturaInicial = Number(input_altura1.value);
+        var alturaFinal = Number(input_altura2.value);
+        var nomePiloto = input_nome.value;
+        var alturaPiloto = Number(input_alturaP.value);
+
+        if(alturaInicial > 1 && alturaFinal > alturaInicial){
+            if(alturaPiloto >= alturaInicial && alturaPiloto <= alturaFinal){
+                conteudo.innerHTML += `O candidato ${nomePiloto} com altura de ${alturaPiloto/100} participará do processo de seleção de piloto<br>`;
+            }else{
+                conteudo.innerHTML += `Infelizmente o candidato ${nomePiloto} com altura de ${alturaPiloto/100} não atende os requisitos<br>`;
+            }
+        }else{
+            conteudo.innerHTML += "ALTURAS INVÁLIDAS<br>";
+        }
+    }
+</script>

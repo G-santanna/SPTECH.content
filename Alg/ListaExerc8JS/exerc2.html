@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira sua nota do ENEM <input type="number" id="input_enem"><br>
+    Insira sua nota do vestibular interno <input type="number" id="input_vestibular"><br>
+    <button onclick="faculdade()">Avaliação</button><br>
+
+</body>
+</html>
+<script>
+    function faculdade(){
+        var enem = Number(input_enem.value);
+        var vestibular = Number(input_vestibular.value);
+
+        if(enem >= 800 || vestibular >= 700){
+            alert("Parabéns! Aprovado");
+        }else{
+            alert("Tente semestre que vem!");
+        }
+    }
+</script>

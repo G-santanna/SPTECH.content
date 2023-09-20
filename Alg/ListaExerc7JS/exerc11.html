@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Passagens à adquirir <input type="number" id="input_passagens"><br>
+    <button onclick="comprar()">Comprar</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function comprar(){
+        var passagens = Number(input_passagens.value);
+        var valor = 0
+
+        if(passagens >= 8 && passagens <= 50){
+            valor = passagens * 4.4;
+            if(passagens <= 19){
+                valor = valor * 0.97;
+            }else if(passagens <= 49){
+                valor = valor * 0.95;
+            }else if(passagens == 50){
+                valor = valor * 0.93;
+            }
+            conteudo.innerHTML = `Total a pagar: R$${valor}`
+        }else{
+            alert("Quantidade inválida para o Fidelidade!")
+        }
+    }
+</script>
