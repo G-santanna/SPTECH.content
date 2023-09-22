@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira o método de pagamento <input id="modoPagamento"><br>
+    <button onclick="compra()">Analisar compra</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function compra(){
+        var metodo = modoPagamento.value;
+
+        if(metodo == "Dinheiro" || metodo == "Cartão de débito"){
+            conteudo.innerHTML = "Você terá que pagar a vista"
+        }else if(metodo == "Boleto" || metodo == "Cartão de crédito"){
+            conteudo.innerHTML = "Pagamento poderá ser parcelado"
+        }else{
+            conteudo.innerHTML = "Método não aceito"
+        }
+    }
+</script>

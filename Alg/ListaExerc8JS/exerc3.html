@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Renda individual <input type="number" id="renda_solo"><br>
+    Renda familiar <input type="number" id="renda_familia"><br>
+    <button onclick="beneficio()">Terei o benefício</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function beneficio(){
+        var rendaSolo = Number(renda_solo.value);
+        var rendaFamilia = Number(renda_familia.value);
+
+        if(rendaSolo <= 2000 || rendaFamilia <= 3000){
+            conteudo.innerHTML = "Você terá direito ao auxílio";
+        }else{
+            conteudo.innerHTML = "Sem direito ao auxílio";
+        }
+    }
+</script>
