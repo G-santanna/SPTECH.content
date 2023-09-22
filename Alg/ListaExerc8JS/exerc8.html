@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome da empresa <input type="text" id="input_empresa"><br>
+    Bolsa <input type="number" id="input_bolsa"><br>
+    VR <input type="number" id="input_vr"><br>
+    Tempo de deslocamento <input type="number" id="input_tempo"><br>
+    <button onclick="empresa()">É preferida?</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function empresa(){
+        var empresa = input_empresa.value;
+        var bolsa = Number(input_bolsa.value);
+        var vr = Number(input_vr.value);
+        var desloc = Number(input_tempo.value);
+
+        if(bolsa >= 1800 || vr >= 20 || desloc <= 30){
+            conteudo.innerHTML = `A empresa ${empresa} é uma de suas preferências`
+        }else{
+            conteudo.innerHTML = `A empresa ${empresa} está fora da sua lista`
+        }
+    }
+</script>

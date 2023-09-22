@@ -21,14 +21,14 @@
         var nomePiloto = input_nome.value;
         var alturaPiloto = Number(input_alturaP.value);
 
-        if(alturaInicial > 1 && alturaFinal > alturaInicial){
+        if(alturaInicial > 100 && alturaFinal > alturaInicial){
             if(alturaPiloto >= alturaInicial && alturaPiloto <= alturaFinal){
                 conteudo.innerHTML += `O candidato ${nomePiloto} com altura de ${alturaPiloto/100} participará do processo de seleção de piloto<br>`;
             }else{
                 conteudo.innerHTML += `Infelizmente o candidato ${nomePiloto} com altura de ${alturaPiloto/100} não atende os requisitos<br>`;
             }
         }else{
-            conteudo.innerHTML += "ALTURAS INVÁLIDAS<br>";
+            alert("ALTURAS INVÁLIDAS<br>");
         }
     }
 </script>
