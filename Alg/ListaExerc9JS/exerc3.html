@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="conteudo" style="color: blue;"></div><br>
+    <button onclick="dep050()">Depositar 0,50</button><br>
+    <button onclick="dep200()">Depositar 2,00</button><br>
+    <button onclick="ret050()">Retirar 0,50</button><br>
+    <button onclick="retVlr()">Retirar</button>Valor <input type="number" id="input_valor"><br>
+</body>
+</html>
+<script>
+    conteudo.innerHTML = `Total guardado no cofrinho: R$0<br>
+        Depósitos efetuados: 0<br>
+        Retiradas efetuadas: 0<br>`
+
+        var depositos = 0;
+        var retiradas = 0;
+        var cofrinho = 0;
+    
+    function dep050(){
+        cofrinho += 0.5;
+        depositos += 1;
+        refresh();
+    }
+    function dep200(){
+        cofrinho += 2;
+        depositos += 1;
+        refresh();
+    }
+    function ret050(){
+        cofrinho -= 0.5;
+        retiradas += 1;
+        refresh();
+    }
+    function retVlr(){
+        cofrinho -= Number(input_valor.value);
+        retiradas += 1;
+        refresh();
+    }
+    function refresh(){
+        conteudo.innerHTML = `Total guardado no cofrinho: R$${cofrinho}<br>
+        Depósitos efetuados: ${depositos}<br>
+        Retiradas efetuadas: ${retiradas}<br>`
+    }
+</script>

@@ -1,0 +1,10 @@
+create table curso (idCurso int primary key auto_increment, nome varchar(50), sigla char(3), coordenador varchar(40));
+insert into curso values (null, 'Administrador de Banco de dados', 'DBA', 'Vivian'), (null, 'Culinária', 'CLN', 'Jonas'), (null, 'Análise e Desenvolvimento de Sistemas', 'ADS', 'Gerson');
+create table aluninho (idAluno int primary key auto_increment, nome varchar(40), fkCurso int, constraint fkCurso foreign key (fkCurso) references curso(idCurso));
+insert into aluninho values (null, 'Jorge', 1), (null, 'Joana', 2), (null, 'Matheus', 2), (null, 'Gustavo', 3);
+select * from curso join aluninho on fkCurso = idCurso;
+select c.nome as Curso, c.sigla, a.nome as Aluno from curso as c join aluninho as a on c.idCurso = a.fkCurso;
+alter table aluninho add column ativo char(3);
+alter table aluninho add constraint chkAtv check (ativo in('sim','não'));
+update aluninho set ativo = 'sim' where idAluno in(1,2,4);
+update aluninho set ativo = 'não' where idAluno = 3;

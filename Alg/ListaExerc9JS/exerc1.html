@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img style="width: 300px;" src="img/relampago-mcqueen.png" id="imgMcQueen"><br>
+    <button onclick="aumentar()">+</button><br>
+    <button onclick="diminuir()">-</button>
+</body>
+</html>
+<script>
+var largura = 300;
+function aumentar(){
+    largura += 10; 
+    imgMcQueen.style.width = largura+"px";
+}
+function diminuir(){
+    largura -= 10; 
+    imgMcQueen.style.width = largura+"px"
+}
+</script>

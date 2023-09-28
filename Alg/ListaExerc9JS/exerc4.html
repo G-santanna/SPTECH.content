@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="esquerda()">Mover para a esquerda</button>
+    <button onclick="direita()">Mover para a direita</button><br>
+    <img id="bartCarro" src="img/carro.jpg">
+</body>
+</html>
+<script>
+margem = 0;
+function esquerda(){
+margem -= 10;
+bartCarro.style.marginLeft = margem+"px";
+bartCarro.style.transform = "scaleX(1)";
+}
+function direita(){
+margem += 10;
+bartCarro.style.marginLeft = margem+"px";
+bartCarro.style.transform = "scaleX(-1)";
+}
+</script>

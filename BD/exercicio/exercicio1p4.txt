@@ -1,0 +1,10 @@
+create database sprint1;
+use sprint1;
+create table professor(idProfessor int primary key auto_increment, nome varchar(50), sobrenome varchar(30), especialidade1 varchar(40), especialidade2 varchar(40));
+create table disciplina(idDisc int primary key auto_increment, nomeDisc varchar(45), fkProfessor int, constraint fkProfessor foreign key (fkProfessor) references professor(idProfessor));
+insert into professor values (null, 'Matheus', 'Kikuti', 'C', 'C++'), (null, 'Marayah', 'Pintos', 'Javascript', 'SQL'), (null, 'João', 'Pedro', 'Java', 'JavaScript'), (null, 'Mônica', 'Herreiro', 'TI', 'Psicologia'), (null, 'Caio', 'Santos', 'Python', 'Javascript'), (null, 'Victor', 'Leonel', 'TI', 'SQL');
+insert into disciplina values (null, 'Banco de dados', '2'), (null, 'Algoritimos', '3'), (null, 'Tecnologia da Informação', '4'); 
+select * from professor join disciplina on idProfessor = fkProfessor;
+select d.nomeDisc as Disciplina, p.nome as Professor from disciplina as d join professor as p on fkProfessor = idProfessor;
+select p.*, d.nomeDisc as Disciplina from professor as p join disciplina as d on fkProfessor = idProfessor where sobrenome = 'Pintos';
+select p.especialidade1 as Especialidade, d.nomeDisc as Disciplina from professor as p join disciplina as d on fkProfessor = idProfessor where idProfessor = 2 order by especialidade1 asc;

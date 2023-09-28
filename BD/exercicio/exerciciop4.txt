@@ -1,0 +1,23 @@
+create database sprint1;
+use sprint1;
+create table professor(idProfessor int primary key auto_increment, nome varchar(50), sobrenome varchar(30), especialidade1 varchar(40), especialidade2 varchar(40));
+create table disciplina(idDisc int primary key auto_increment, nomeDisc varchar(45), fkProfessor int, constraint fkProfessor foreign key (fkProfessor) references professor(idProfessor));
+insert into professor values (null, 'Matheus', 'Kikuti', 'C', 'C++'), (null, 'Marayah', 'Pintos', 'Javascript', 'SQL'), (null, 'João', 'Pedro', 'Java', 'JavaScript'), (null, 'Mônica', 'Herreiro', 'TI', 'Psicologia'), (null, 'Caio', 'Santos', 'Python', 'Javascript'), (null, 'Victor', 'Leonel', 'TI', 'SQL');
+insert into disciplina values (null, 'Banco de dados', '2'), (null, 'Algoritimos', '3'), (null, 'Tecnologia da Informação', '4'); 
+select * from professor join disciplina on idProfessor = fkProfessor;
+select d.nomeDisc as Disciplina, p.nome as Professor from disciplina as d join professor as p on fkProfessor = idProfessor;
+select p.*, d.nomeDisc as Disciplina from professor as p join disciplina as d on fkProfessor = idProfessor where sobrenome = 'Pintos';
+select p.especialidade1 as Especialidade, d.nomeDisc as Disciplina from professor as p join disciplina as d on fkProfessor = idProfessor where idProfessor = 2 order by especialidade1 asc;
+
+--
+
+create table curso (idCurso int primary key auto_increment, nome varchar(50), sigla char(3), coordenador varchar(40));
+insert into curso values (null, 'Administrador de Banco de dados', 'DBA', 'Vivian'), (null, 'Culinária', 'CLN', 'Jonas'), (null, 'Análise e Desenvolvimento de Sistemas', 'ADS', 'Gerson');
+create table aluninho (idAluno int primary key auto_increment, nome varchar(40), fkCurso int, constraint fkCurso foreign key (fkCurso) references curso(idCurso));
+insert into aluninho values (null, 'Jorge', 1), (null, 'Joana', 2), (null, 'Matheus', 2), (null, 'Gustavo', 3);
+select * from curso join aluninho on fkCurso = idCurso;
+select c.nome as Curso, c.sigla, a.nome as Aluno from curso as c join aluninho as a on c.idCurso = a.fkCurso;
+alter table aluninho add column ativo char(3);
+alter table aluninho add constraint chkAtv check (ativo in('sim','não'));
+update aluninho set ativo = 'sim' where idAluno in(1,2,4);
+update aluninho set ativo = 'não' where idAluno = 3;
