@@ -7,19 +7,20 @@
 </head>
 <body>
     <button onclick="esquerda()">Mover para a esquerda</button>
-    <button onclick="direita()">Mover para a direita</button><br>
-    <img id="bartCarro" src="img/carro.jpg">
+    <button onclick="direita()">Mover para a direita</button>
+    <input type="number" id="input_px">Quantos pixels<br>
+    <img id="bartCarro" src="carro.jpg">
 </body>
 </html>
 <script>
 margem = 0;
 function esquerda(){
-margem -= 10;
+margem -= Number(input_px.value);
 bartCarro.style.marginLeft = margem+"px";
 bartCarro.style.transform = "scaleX(1)";
 }
 function direita(){
-margem += 10;
+margem += Number(input_px.value);
 bartCarro.style.marginLeft = margem+"px";
 bartCarro.style.transform = "scaleX(-1)";
 }
