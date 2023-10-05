@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite um intervalo de valores crescentes e inteiros <input type="number" id="input_start"><input type="number" id="input_end"><br>
+    <button onclick="pares()">S2 Pares</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+        function pares(){
+        var numero = 0;
+        var start = Number(input_start.value);
+        var end = Number(input_end.value);
+
+        conteudo.innerHTML = "";
+        while(numero <= 100){
+            if(numero >= start && numero <= end){
+                conteudo.innerHTML += numero+"<br>";
+            }
+            numero += 2;
+        }
+    }
+</script>

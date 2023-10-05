@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um número de 20 - 100 <input type="number" id="input_numero"><br>
+    <button onclick="by5()">Adoro múltiplos de 5</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function by5(){
+        var numero = 0;
+        var numeroUser = Number(input_numero.value);
+
+        while(numero <= numeroUser){
+            numero.toString();
+            var lastChar = numero.length-1;
+            if(numero[lastChar] == '0' || numero[lastChar] == '5'){
+                conteudo.innerHTML += numero+"<br>";
+            }
+            Number(numero);
+            numero++;
+        }
+    }
+</script>

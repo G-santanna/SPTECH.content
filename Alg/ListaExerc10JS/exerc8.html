@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um número de 0 - 200 input: <input type="number" id="input_numero"><br>
+    <button onclick="by7()">Viva o 7!</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function by7(){
+        var numero = 0;
+        var numeroUser = Number(input_numero.value);
+
+        while(numero <= numeroUser){
+            conteudo.innerHTML += numero+"<br>"
+            numero += 7;
+        }
+    }
+</script>

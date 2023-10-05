@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="falar()">Diga algo sobre a matéria de Algoritmos</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function falar(){
+        var numero = 1;
+        conteudo.innerHTML = "";
+        while(numero <= 7){
+            conteudo.innerHTML += "Eu amo JavaScript!<3<br>";
+            numero += 1;
+        }
+    }
+</script>
