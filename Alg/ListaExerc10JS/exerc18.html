@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas Coca-Cola você já bebeu na vida? <input type="number" id="txtCoca"><br>
+    <button onclick="ver()">Ver a quantidade</button>
+    <div id="conteudo"></div>
+    
+</body>
+</html>
+<script>
+    function ver(){
+        conteudo.innerHTML = ``;
+        var i = 1;
+        var qntGarrafas = Number(txtCoca.value);
+
+        while (i <= qntGarrafas){
+            conteudo.innerHTML += `<img style="height: 40px" src="coca.webp">`
+            i++;
+        }
+    }
+</script>

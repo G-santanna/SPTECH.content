@@ -1,15 +1,15 @@
 use sprint2;
 
 create table pet (id int primary key auto_increment, tipo varchar(45), nome varchar(45), raca varchar(45), dataNasc date)auto_increment = 101;
-create table cliente (id int primary key auto_increment, nome varchar(45), sobrenome varchar(45), telefone1 char(11), telefone2 char(11), rua varchar(45), bairro varchar(45), cidade varchar(45), cep char(8));
+create table cliente (id int primary key auto_increment, nome varchar(45), sobrenome varchar(45), telefone1 char(11), telefone2 char(11), rua varchar(45), bairro varchar(45), cidade varchar(45), cep char(8), numero int);
 
 alter table pet add column idCliente int;
 alter table pet add constraint fkPetCliente foreign key (idCliente) references cliente(id);
 
 insert into cliente values
-(null, 'João', 'Henrique', '11940028922', '11908007777', 'Rua Brasil', 'José Bonifácio', 'São Paulo', '08485405'),
-(null, 'Gustavo', 'Henrique','11940028922', '11908007777', 'Rua Arroio Triunfo', 'Cidade Tiradentes', 'São Paulo', '08485430'),
-(null, 'Maria', 'Eduarda', '11940028922', '11908007777', 'Rua Arroio Triunfo', 'Cidade Tiradentes', 'São Paulo', '08485430');
+(null, 'João', 'Henrique', '11940028922', '11908007777', 'Rua Brasil', 'José Bonifácio', 'São Paulo', '08485405', 40),
+(null, 'Gustavo', 'Henrique','11940028922', '11908007777', 'Rua Arroio Triunfo', 'Cidade Tiradentes', 'São Paulo', '08485430', 230),
+(null, 'Maria', 'Eduarda', '11940028922', '11908007777', 'Rua Arroio Triunfo', 'Cidade Tiradentes', 'São Paulo', '08485430', 230);
 
 insert into pet values
 (null, 'Cachorro', 'Nina', 'Shih-tzu', '2020-04-10', 2),

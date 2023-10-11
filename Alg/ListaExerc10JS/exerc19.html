@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas xícaras de café com leite já tomou na vida <input type="number" id="txtXicara"><br>
+    <button onclick="ver()">Ver a quantidade</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function ver(){
+        var i = 1;
+        var xicara = Number(txtXicara.value);
+
+        var cafe = 0;
+        var leite = 0;
+
+        while (i <= xicara){
+            cafe += 2;
+            leite ++;
+            i++;
+        }
+        conteudo.innerHTML = `${leite} colheres com leite em pó e ${cafe} colheres de café em pó`
+    }   
+</script>

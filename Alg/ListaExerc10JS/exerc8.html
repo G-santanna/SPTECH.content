@@ -13,12 +13,20 @@
 </html>
 <script>
     function by7(){
-        var numero = 0;
+        var numero = 1;
         var numeroUser = Number(input_numero.value);
+        conteudo.innerHTML = "";
+
+        // while(numero <= numeroUser){
+        //     conteudo.innerHTML += numero+"<br>"
+        //     numero += 7;
+        // }
 
         while(numero <= numeroUser){
-            conteudo.innerHTML += numero+"<br>"
-            numero += 7;
+            if(numero % 7 == 0){
+                conteudo.innerHTML += numero+"<br>"
+            }
+            numero ++;
         }
     }
 </script>

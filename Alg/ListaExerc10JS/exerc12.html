@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="txtNum"><br>
+    <input type="number" name="" id="max"><br>
+    <button onclick="tabuada()">Ver Tabuada</button><br>
+    <div id="conteudo">
+    </div>
+</body>
+</html>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .par{
+        color: blue;
+    }
+    .impar{
+        color: red;
+    }
+</style>
+<script>
+    function tabuada(){
+        var num = 1;
+        var userNum = Number(txtNum.value);
+        var maximo = Number(max.value);
+
+        conteudo.innerHTML = ``
+
+        while(num <= maximo){
+            if(num % 2 == 0){
+                conteudo.innerHTML += `<p id="par" class="par">${userNum} x ${num} = ${num*userNum}</p>`;
+            }else{
+                conteudo.innerHTML += `<p id="impar" class="impar">${userNum} x ${num} = ${num*userNum}</p>`;
+            }
+
+            num++;
+        }
+
+    }
+</script>

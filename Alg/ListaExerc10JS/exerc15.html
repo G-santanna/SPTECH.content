@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantos elefantes? <input type="number" id="txtElefantes"><br>
+    <button onclick="elefante()">Atazanar a médium</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function elefante(){
+        var i = 1;
+        var elefantes = Number(txtElefantes.value);
+
+        conteudo.innerHTML = ``;
+        conteudo.innerHTML += `1 elefante incomoda muita gente!<br>`;
+        
+        while(i<=elefantes){
+            var n = 1;
+            i++;
+
+            conteudo.innerHTML += `${i} elefantes `;
+            while(n <= i){
+                conteudo.innerHTML += `incomodam, `
+                n++;
+            } 
+            conteudo.innerHTML += `muito mais!<br>`;
+            
+            if(i <= elefantes){
+                conteudo.innerHTML += `1 elefante incomoda muita gente!<br>`;
+            }
+        }
+    }
+</script>

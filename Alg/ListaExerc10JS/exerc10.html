@@ -18,10 +18,13 @@
         var end = Number(input_end.value);
 
         conteudo.innerHTML = "";
-        while(numero <= 100){
+        while(numero <= end){
             if(numero >= start && numero <= end){
                 conteudo.innerHTML += numero+"<br>";
             }
+            // else{
+            //     conteudo.innerHTML += "numero fora do intervalo<br>"
+            // }
             numero += 2;
         }
     }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Qual o intervalo de dias o qual você treina <input type="number" id="intervaloTreino"/><br/>
+    <button onclick="rotina()">Exibir rotina mensal</button><br>
+    <div id="conteudo"></div>
+  </body>
+</html>
+<script>
+    function rotina(){
+
+        var i = 1;
+        var intervalo = Number(intervaloTreino.value);
+        var dias = 0;
+
+        conteudo.innerHTML = ``;
+        conteudo.innerHTML += `Dia ${i} - Musculação<br>`;
+        dias++;
+        i++;
+
+        
+        while(i<=30){
+            if(dias%intervalo == 0){
+                conteudo.innerHTML += `Dia ${i} - Musculação <br>`;
+                // conteudo.innerHTML += `${dias} | ${i} | ${intervalo}`
+            }else{
+                conteudo.innerHTML += `Dia ${i} - Comer, dormir etc <br>`;
+                // conteudo.innerHTML += `${dias} | ${i} | ${intervalo}`
+            }
+            // conteudo.innerHTML += `<br>`
+            dias++;
+            i++;
+        }
+    }
+</script>

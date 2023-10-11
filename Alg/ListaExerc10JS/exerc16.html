@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas caronas? <input type="number" id="txtCarona"><br>
+    <button onclick="caronas()">#Partiu Carona</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function caronas(){
+        var i = 2;
+        var nCaronas = Number(txtCarona.value);
+
+        conteudo.innerHTML = ``;
+        conteudo.innerHTML += `Entrou o 1º passageiro (que é o(a) motorista)<br>`;
+
+        while(i <= nCaronas){
+            if(i <= 5){
+                conteudo.innerHTML += `Entrou o ${i}º passageiro<br>`;
+            }else{
+                conteudo.innerHTML += `O ${i}º passageiro terá que esperar!<br>`;
+            }
+
+            i++;
+        }
+    }
+</script>
