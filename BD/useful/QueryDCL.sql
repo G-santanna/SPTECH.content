@@ -11,3 +11,6 @@ flush privileges;
 grant all privileges on sptechb.* to 'supervisor'@'localhost';
 
 flush privileges;
+
+revoke all privileges on sptechb.* from 'supervisor'@'localhost';
+

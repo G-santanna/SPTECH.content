@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Limite inferior da amostragem <input type="number" id="limInf"><br>
+    Limite superior da amostragem <input type="number" id="limSup"><br>
+    Divisibilidade <input type="number" id="divis"><br>
+    <button onclick="contar()">Contar</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function contar(){
+        var inferior = Number(limInf.value);
+        var superior = Number(limSup.value);
+        var divisibilidade = Number(divis.value);
+
+        conteudo.innerHTML = '';
+
+        if(inferior <= 1 || superior >= 100 || superior <= inferior || divisibilidade < 3 || divisibilidade > 10){
+            alert('Limite superior deverá ser maior que 1, o Limite superior menor que 100, o Limite superior maior que o inferior, e a divisibilidade deverá estar entre 3 e 10');
+        }else{
+            var numero = inferior;
+            var numerosExib = 0;
+            var somatorio = 0;  
+            var first = 0;
+            var last = 100;
+
+            while(numero >= inferior && numero <= superior){
+
+                if(numero % divisibilidade == 0){
+                    numerosExib++;
+                    somatorio += numero;
+                    last = numero;
+                    if(first == 0){
+                        first = numero;
+                    }else{
+                        conteudo.innerHTML += `<span>, `
+                    }
+                    conteudo.innerHTML += `${numero}</span>`;
+                }
+
+                numero++;
+            }
+            conteudo.innerHTML += `<br>
+            QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${numerosExib} <br>
+
+            SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${somatorio} <br>
+
+            MÉDIA DOS NÚMEROS EXIBIDOS: ${somatorio/numerosExib} <br>
+
+            MAIOR NÚMERO EXIBIDO: ${last} <br>
+
+            MENOR NÚMERO EXIBIDO: ${first} <br>
+            `
+        }
+    }
+</script>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantidade de Macarons a ser vendido <input type="number" id="inp_qntMacarons"><br>
+    Quantidade de Brigadeiros Gourmets a ser vendido <input type="number" id="inp_qntBrig"><br>
+    Quantidade de Cupcakes a ser vendido <input type="number" id="inp_qntCup"><br>
+    Quantidade de Cheesecakes a ser vendido <input type="number" id="inp_qntCheese"><br>
+    Preço Macarons <input type="number" id="inp_precoMacarons"><br>
+    Preço Brigadeiros Gourmets <input type="number" id="inp_precoBrig"><br>
+    Preço Cupcakes <input type="number" id="inp_precoCup"><br>
+    Preço Cheesecakes <input type="number" id="inp_precoCheese"><br>
+
+    <button onclick="verif()">Verificar Vendas</button>
+
+    <div id="conteudo"></div>
+    
+</body>
+</html>
+<script>
+
+    function verif(){
+        conteudo.innerHTML = "";
+
+        var qntMacarons = Number(inp_qntMacarons.value);
+        var qntBrig = Number(inp_qntBrig.value);
+        var qntCup = Number(inp_qntCup.value);
+        var qntCheese = Number(inp_qntCheese.value);
+        var qntVendas = qntCheese+qntCup+qntBrig+qntMacarons;
+        
+        var precoMacarons = Number(inp_precoMacarons.value);
+        var precoBrig = Number(inp_precoBrig.value);
+        var precoCup = Number(inp_precoCup.value);
+        var precoCheese = Number(inp_precoCheese.value);
+
+        if(qntMacarons >= 0 && qntBrig  >= 0 && qntCup >= 0 && qntCheese >= 0 && precoMacarons > 0 && precoBrig > 0 && precoCup > 0 && precoCheese > 0){
+            var cont = 1;
+
+            var imgMacarons = '<img src="macarons.jpg" style="width: 100px;">';
+            var imgBrig = '<img src="brigadeirogormet.webp" style="width: 100px;">';
+            var imgCup = '<img src="cupcakes.jpeg" style="width: 100px;">';
+            var imgCheese = '<img src="cheesecake.jpeg" style="width: 100px;">';
+
+            var iM = qntMacarons;
+            var iB = qntBrig;
+            var iCp = qntCup;
+            var iCh = qntCheese;
+
+            var venda = 0;
+
+            while(cont <= qntVendas){
+                if(iM > 0){
+                    venda++;
+                    conteudo.innerHTML += `Venda ${venda} - ${imgMacarons} - R$ ${precoMacarons}<br>`;
+                    iM -= 1;
+                }else if(iB > 0){
+                    venda++;
+                    conteudo.innerHTML += `Venda ${venda} - ${imgBrig} - R$ ${precoBrig}<br>`;
+                    iB -= 1;
+                }else if(iCp > 0){
+                    venda++;
+                    conteudo.innerHTML += `Venda ${venda} - ${imgCup} - R$ ${precoCup}<br>`;
+                    iCp -= 1;
+                }else{
+                    venda++;
+                    conteudo.innerHTML += `Venda ${venda} - ${imgCheese} - R$ ${precoCheese}<br>`;
+                    iCh -= 1;
+                }
+
+
+
+
+                cont++;
+            }
+
+            var precoFinal = (qntMacarons*precoMacarons) + (qntBrig*precoBrig) + (qntCup*precoCup) + (qntCheese*precoCheese);
+
+            conteudo.innerHTML += `Com a quantidade de ${qntMacarons} Macarons, ${qntBrig} Brigadeiros, ${qntCup} Cupcakes e ${qntCheese} Cheesecakes, a venda
+totalizará R$${precoFinal}"`;
+        }
+
+
+    }
+</script>

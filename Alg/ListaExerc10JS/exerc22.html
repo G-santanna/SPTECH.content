@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Depósitos efetuados <input type="number" id="txtDep"><br>
+    Valor dos depósitos <input type="number" id="txtVlr"><br>
+    <button onclick="banco()">Acompanhar grana</button><br>
+    <div id="conteudo"></div>
+    
+</body>
+</html>
+<script>
+    function banco(){
+        conteudo.innerHTML = ``;
+        var i = 1;
+        var depositos = Number(txtDep.value);
+        var valor = Number(txtVlr.value);
+        var guardado = 0;
+
+        while(i <= depositos){            
+            guardado += valor
+            if(i%3 == 0){
+                guardado += guardado/100*1
+                conteudo.innerHTML += `<span>${i}º Mês: R$${guardado}<img style="height: 10px" src="star.png"></span><br>`
+            }else{
+                conteudo.innerHTML += `<span>${i}º Mês: R$${guardado}</span><br>`
+            }
+            i++;
+        }
+        i--;
+        conteudo.innerHTML += `Total guardado: R$${guardado}`
+    }
+</script>

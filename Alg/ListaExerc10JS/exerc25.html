@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um numero entre 0 e 100 <input type="number" id="input_numero"><br>
+    <button onclick="verDivs()">Ver Divisores</button>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    function verDivs(){
+        conteudo.innerHTML = ``;
+        var numero = Number(input_numero.value);
+        var contador = 0;
+        var qtdDivisao = 0;
+
+        while(contador <= numero){
+            if(numero % contador == 0){
+                qtdDivisao += 1;
+                conteudo.innerHTML += `${contador} é divisor de ${numero}; quantidade de divisores atual: ${qtdDivisao}<br>`;
+            }
+            contador += 1;
+        }
+        // contador = 2;
+        // while(numero % contador != 0){
+        //     contador++;
+        // }
+        // if(contador == numero){
+        //     conteudo.innerHTML += `O número ${numero} é um número primo`;
+        // }
+        if(numero > 1 && qtdDivisao == 2){
+            conteudo.innerHTML += `O número ${numero} é um número primo`;
+        }
+    }
+</script>
