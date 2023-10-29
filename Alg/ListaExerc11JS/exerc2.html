@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Destino de viagem <input type="text" id="inp_destino">
+    <button onclick="adicionar()">Adicionar</button><br>
+    <button onclick="first()">Primeira viagem</button>
+    <button onclick="third()">Terceira viagem</button>
+    <button onclick="last()">Última viagem</button>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+
+    var flights = [];
+
+    function adicionar(){
+        flights.push(inp_destino.value);
+    }
+    function first(){
+        if(flights.length > 0){
+            conteudo.innerHTML = flights[0];
+        }else{
+            conteudo.innerHTML = `Ainda não viajou`
+        }
+    }
+    function third(){
+        if(flights.length >= 3){
+            conteudo.innerHTML = flights[2];
+        }else{
+            conteudo.innerHTML = `Ainda fez a terceira viagem`
+        }
+    }
+    function last(){
+        if(flights.length > 0){
+            conteudo.innerHTML = flights[flights.length-1];
+        }else{
+            conteudo.innerHTML = `Ainda não viajou`
+        }
+    }
+</script>

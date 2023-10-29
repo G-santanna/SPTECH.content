@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img{
+        height: 50px;
+    }
+</style>
+<body>
+    Valor da premiação total: <input type="number" id="inp_premiacao"><br>
+    Número máximo de rodadas: <input type="number" id="inp_max_rodadas"><br>
+    <select id="timeA">
+        <option value="win">Vitória</option>
+        <option value="draw">Empate</option>
+        <option value="loss">Derrota</option>
+    </select>
+    Resultado Time A <br>
+    <select id="timeB">
+        <option value="win">Vitória</option>
+        <option value="draw">Empate</option>
+        <option value="loss">Derrota</option>
+    </select>
+    Resultado Time B <br>
+    <select id="timeC">
+        <option value="win">Vitória</option>
+        <option value="draw">Empate</option>
+        <option value="loss">Derrota</option>
+    </select>
+    Resultado Time C <br>
+
+    <button onclick="jogar()">Realizar rodada</button><button onclick="premiar()">Revelar Premiação</button>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+
+rodada = 1;
+ptsA = 0;
+ptsB = 0;
+ptsC = 0;
+somatoria = 0;
+premiacao = 0;
+
+function jogar(){
+    premiacao = Number(inp_premiacao.value);
+    var max_rodadas = Number(inp_max_rodadas.value);
+    if(rodada == max_rodadas){
+        premiar();
+    }else{    
+    if(timeA.value == "win"){
+            ptsA += 3;
+    }else if(timeA.value == "draw"){
+        ptsA += 1;
+    }
+
+    if(timeB.value == "win"){
+        ptsB += 3;
+    }else if(timeB.value == "draw"){
+        ptsB += 1;
+    }
+
+    if(timeC.value == "win"){
+        ptsC += 3;
+    }else if(timeC.value == "draw"){
+        ptsC += 1;
+    }
+
+    somatoria = ptsA+ptsB+ptsC;
+    
+    if(premiacao >= 1000 && max_rodadas >= 1){
+
+        conteudo.innerHTML = `
+        Rodada Atual: ${rodada}<br>
+        Time A: <div id="imgptsA"></div><br>
+        Time B: <div id="imgptsB"></div><br>
+        Time C: <div id="imgptsC"></div><br>
+        `
+
+        for(var i = 0; i <= ptsA; i++){
+            imgptsA.innerHTML += `<img src="https://icons.iconarchive.com/icons/hopstarter/scrap/256/Aqua-Ball-Red-icon.png">`
+            console.log(i)
+        }
+        for(var i = 0; i <= ptsB; i++){
+            imgptsB.innerHTML += `<img src="https://static.vecteezy.com/system/resources/thumbnails/025/225/574/small/3d-ball-blue-free-png.png">`
+        }
+        for(var i = 0; i <= ptsC; i++){
+            imgptsC.innerHTML += `<img src="https://www.freeiconspng.com/uploads/glossy-ball-green-png-16.png">`
+        }
+
+        rodada++;
+    }else{
+        alert("Dados inválidos para a rodada");
+    }
+}
+}
+
+function premiar(){
+    var porcentagemptsA = (ptsA*100/somatoria).toFixed(2);
+    var porcentagemptsB = (ptsB*100/somatoria).toFixed(2);
+    var porcentagemptsC = (ptsC*100/somatoria).toFixed(2);
+
+
+    conteudo.innerHTML = `
+        Rodada Atual: ${rodada}<br>
+        Time A: ${(premiacao/100*porcentagemptsA).toFixed(2)}<br>
+        Time B: ${(premiacao/100*porcentagemptsB).toFixed(2)}<br>
+        Time C: ${(premiacao/100*porcentagemptsC).toFixed(2)}<br>`
+
+}
+</script>

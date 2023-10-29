@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Abertura do Quiosque</h2>
+    Entre com a quantidade de Água engarrafada no estoque: <input type="number" id="inp_agua"><br>
+    Entre com a quantidade de Coco fechado no estoque: <input type="number" id="inp_coco"><br>
+    <button onclick="abrir()">Abrir o Quiosque</button><br>
+    <h2>Estoque inicial</h2>
+    <span>Água engarrafada: </span><b id="txtAgua"></b><br>
+    <span>Coco fechado: </span><b id="txtCoco"></b>
+    <h2>Registro das Operações de venda</h2>
+    Entre com a quantidade vendida: <input type="number" id="qnt_venda"> 
+    Informe o produto vendido: 
+    <!-- <input type="text" id="inp_produto">  -->
+    <select id="inp_produto">
+        <option value="Água engarrafada">Água engarrafada</option>
+        <option value="Coco fechado">Coco fechado</option>
+    </select>
+    
+    <button onclick="registrar()">Registrar a Venda</button> <button style="background-color: red;" onclick="encerrar()">Encerrar o Turno</button><br>
+    <div id="conteudo">
+
+    </div>
+</body>
+</html>
+<script>
+
+var agua = 0;
+var coco = 0;
+var vendasAgua = 0;
+var vendasCoco = 0;
+    
+function abrir(){
+    agua = Number(inp_agua.value);
+    coco = Number(inp_coco.value);
+
+    if(agua >= 100){
+        if(coco >= 200){
+            if(agua < 1000){
+                conteudo.innerHTML += `Engarrafe mais água de coco<br>`;
+            }
+            if(coco < 2000){
+                conteudo.innerHTML += `Compre mais cocos<br>`;
+            }
+            txtAgua.innerHTML = agua;
+            txtCoco.innerHTML = coco;
+
+        }else{
+            conteudo.innerHTML = `Com essa quantidade de Coco fechado não dá para abrir o quiosque`;
+        }
+    }else{
+        conteudo.innerHTML = `Com essa quantidade de Água engarrafada não dá para abrir o quiosque`;
+    }
+
+}
+function registrar(){
+    var quantidade = Number(qnt_venda.value);
+    var produto = inp_produto.value;
+
+    if(produto == "Água engarrafada"){
+        agua -= quantidade;
+        vendasAgua += quantidade;
+        conteudo.innerHTML += `Com a venda de ${quantidade} de ${produto} o saldo no estoque é de ${agua}<br>`;
+    }else if(produto == "Coco fechado"){
+        coco -= quantidade;
+        vendasCoco += quantidade;
+        conteudo.innerHTML += `Com a venda de ${quantidade} de ${produto} o saldo no estoque é de ${coco}<br>`;
+    }
+}
+function encerrar(){
+// conteudo.innerHTML = `<b>Vendas de Água engarrafada</b><br>
+
+// Saldo de produto no estoque: ${agua} <br>
+
+// Quantidade de vendas: ${vendasAgua}<br>
+
+// Porcentagem das vendas: ${vendasAgua*100/(vendasAgua+agua)}%<br>
+
+
+
+// <b>Vendas de Coco fechado</b> <br>
+
+// Saldo de produto no estoque: ${coco} <br>
+
+// Quantidade de vendas: ${vendasCoco}<br>
+
+// Porcentagem das vendas: ${vendasCoco*100/(vendasCoco+coco)}%<br>`
+conteudo.innerHTML = ``;
+produto = `Água engarrafada`;
+estoque = agua;
+vendas = vendasAgua;
+porcentagem = vendas*100/(vendas+estoque);
+
+    for(var i = 1; i <= 2; i++){
+        conteudo.innerHTML += `
+        <b>Vendas de ${produto}</b><br>
+        Saldo de produto no estoque: ${estoque} <br>
+        Quantidade de vendas: ${vendas}<br>
+        Porcentagem das vendas: ${porcentagem}%<br>`;
+
+        produto = `Coco fechado`;
+        estoque = coco;
+        vendas = vendasCoco;
+        porcentagem = vendas*100/(vendas+estoque);
+    }
+}
+</script>

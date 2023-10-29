@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Fruta: <input type="text" id="input_fruta">
+    <button onclick="adicionar()">Adicionar Fruta</button>
+    <button onclick="exibir()">Exibir Lista</button>
+    <br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    var frutas = [];
+
+    function adicionar(){
+        var fruta = input_fruta.value;
+        frutas.push(fruta);
+        input_fruta.value = '';
+        input_fruta.focus();
+    }
+    function exibir(){
+        for(var i = 0; i < frutas.length; i++){
+            conteudo.innerHTML += frutas[i]+"<br>";
+        }
+    }
+</script>
