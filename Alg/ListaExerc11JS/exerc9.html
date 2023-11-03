@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do projeto <input type="text" id="inp_projeto">
+    <button onclick="reg()">Registrar projeto</button><br>
+    <div id="conteudo"></div><br>
+    <button onclick="mostrarProjetos()">Mostrar Projetos</button>
+    <div id="conteudo2"></div>
+</body>
+</html>
+<script>
+    var projetos = [];
+
+    var nivel = 'Júnior';
+
+    function reg(){
+        projetos.push(inp_projeto.value);
+        exp();
+    }
+    function exp(){
+        var qtdProj = projetos.length;
+
+        if(qtdProj > 4 && qtdProj < 13){
+            nivel = 'Pleno';
+        }else if(qtdProj > 12){
+            nivel = 'Sênior';
+        }   
+        mostrarRelatorio();
+    }
+    function mostrarRelatorio(){
+        conteudo.innerHTML = `
+        Você já fez ${projetos.length} projetos. Por isso você é um profissional ${nivel}`
+    }
+    function mostrarProjetos(){
+        conteudo2.innerHTML = ``;
+        for(var i = projetos.length -1; i >= 0; i--){
+            conteudo2.innerHTML += `${projetos[i]}<br>`;
+        }
+    }
+</script>

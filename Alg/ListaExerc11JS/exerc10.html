@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Linha <input type="text" id="inp_linha">
+    <button onclick="gravar()">Gravar busão</button><br>
+    <div id="conteudo"></div><br>
+    Pesquisar Linha <input type="text" id="inp_pesq">
+    <button onclick="pesquisar()">Pesquisar Linha</button><br>
+    <div id="conteudo2"></div>
+</body>
+</html>
+<script>
+    var linhas = [];
+
+    function gravar(){
+        linhas.push(inp_linha.value);
+        mostrar();
+    }
+    function mostrar(){
+        conteudo.innerHTML = ``;
+        for(var i = linhas.length - 1; i >= 0; i--){
+            conteudo.innerHTML += `
+            ${linhas[i]}<br>
+            `
+        }
+    }
+    function pesquisar(){
+        var qndUsou = []
+
+        for(var i = 0; i < linhas.length; i++){
+            if(linhas[i] == inp_pesq.value){
+                qndUsou.push(i+1);
+            }
+        }
+
+        if(qndUsou.length > 0){
+            conteudo2.innerHTML = `Você já pegou essa linha ${qndUsou.length} vezes, nessa ordem: ${qndUsou[0]}`;
+            for(var i = 1; i < qndUsou.length; i++){
+                conteudo2.innerHTML += `, ${qndUsou[i]}`
+            }
+        }else{
+            conteudo2.innerHTML = `Você nunca pegou essa linha`
+        }
+    }
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .vermelho{
+        color: red;
+    }
+    .azul{
+        color: blue;
+    }
+</style>
+<body>
+    Filme <input type="text" id="inp_filme">
+    <button onclick="cadastrar()">Cadastrar</button><br>
+    <div id="conteudo" style="display: block;">
+    
+    </div>
+</body>
+</html>
+<script>
+    var filmes= [];
+
+    function cadastrar(){
+        filmes.push(inp_filme.value);
+        conteudo.innerHTML = ``;
+        mostrar();
+    }
+    function mostrar(){
+        for(var i = 0; i < filmes.length; i++){
+            if(i % 2 == 0){
+                conteudo.innerHTML += `<span class=azul>${filmes[i]}<br>`
+            }else{
+                conteudo.innerHTML += `<span class=vermelho>${filmes[i]}<br>`
+            }
+        }
+    }
+</script>

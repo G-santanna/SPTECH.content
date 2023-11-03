@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Resultado
+    <select id="resultado">
+        <option value="3">Ganhou</option>
+        <option value="1">Empatou</option>
+        <option value="0">Perdeu</option>
+    </select>
+    <button onclick="registrar()">Registrar Jogo</button><br>
+    Indique qual jogo deseja saber o resultado
+    <div id="conteudo"></div>
+    <input type="text" id="inp_rodada" oninput="rodada()"><br>
+    <div id="conteudo2"></div>
+
+</body>
+</html>
+<script>
+    var jogos = []
+
+    var vitorias = 0;
+    var empates = 0;
+    var derrotas = 0;
+    var pontos = 0;
+
+    function registrar(){
+        jogos.push(Number(resultado.value));
+        calcular();
+    }
+    function calcular(){
+        for(var i = jogos.length-1; i < jogos.length; i++){
+            if(jogos[i] == 3){
+                vitorias++;
+            }else if(jogos[i] == 1){
+                empates++;
+            }else{
+                derrotas++;
+            }
+            pontos += jogos[i];
+        }
+        mostrar();
+    }
+    function mostrar(){
+        conteudo.innerHTML = `
+        O time teve: ${vitorias} vitórias, ${empates} empates, ${derrotas} derrotas 
+        Pontuação total: ${pontos} pontos 
+        Aproveitamento: ${pontos/(jogos.length*3)*100}% 
+        `
+    }
+    function rodada(){
+        var resultado = "";
+
+        if(jogos[inp_rodada.value - 1] == 3){
+            resultado = "Ganhou";
+        }else if(jogos[inp_rodada.value - 1] == 1){
+            resultado = "Empatou";
+        }else if(jogos[inp_rodada.value - 1] == 0){
+            resultado = "Perdeu";
+        }
+
+        if(resultado != ""){
+            conteudo2.innerHTML = `
+            No ${inp_rodada.value}º jogo, o time ${resultado}
+            `
+        }else{
+            conteudo2.innerHTML = `
+            Não foi cadastrado um ${inp_rodada.value}º jogo 
+            `
+        }
+    }
+</script>
