@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Análise de performance de alunos - Registro</h1><br>
+    <span>Entre com o nome do aluno: </span> 
+    <input type="text" id="inp_nome"><br>
+    <span>Entre com a nota do aluno na AC-1: </span>
+    <input type="number" id="inp_nota1"><br>
+    <span>Entre com a nota do aluno na AC-2: </span>
+    <input type="number" id="inp_nota2"><br>
+    <span>Entre com a nota do aluno na AC-3: </span>
+    <input type="number" id="inp_nota3"><br>
+    <button onclick="registrar()">Registrar</button>
+    <button onclick="analisar()">Analisar</button><br>
+    <div id="conteudo"></div>
+    
+</body>
+</html>
+<script>
+    var listaNome = [];
+    var listaNotaAC1 = [];
+    var listaNotaAC2 = [];
+    var listaNotaAC3 = [];
+
+    function registrar(){
+        var notaAC1 = Number(inp_nota1.value);
+        var notaAC2 = Number(inp_nota2.value);
+        var notaAC3 = Number(inp_nota3.value);
+
+        if(inp_nome.value.length > 0 && notaAC1 >= 0 && notaAC1 <= 10 && notaAC2 >= 0 && notaAC2 <= 10 && notaAC3 >= 0 && notaAC3 <= 10){
+            conteudo.innerHTML = ``;
+            var nome = inp_nome.value;
+            
+            listaNome.push(nome);
+            listaNotaAC1.push(notaAC1);
+            listaNotaAC2.push(notaAC2);
+            listaNotaAC3.push(notaAC3);
+
+            for(var i = 0; i < listaNome.length; i++){
+                conteudo.innerHTML += `Aluno: ${listaNome[i]} Nota na AC-1: ${listaNotaAC1[i]} Nota na AC-2: ${listaNotaAC2[i]} Nota na AC-3: ${listaNotaAC3[i]}<br>`;
+            }
+
+        }else{
+            alert("O campo nome deve estar preenchido e a nota deve ser entre 0 e 10!");
+        }
+    }
+
+    function analisar(){
+        document.querySelector("body").innerHTML = `
+        <h1>Análise de performance de alunos - Pesquisa</h1><br>
+        <span>Entre com o intervalo de notas: </span> 
+        <input type="number" id="inp_nota_min" placeholder="De">
+        <input type="number" id="inp_nota_max" placeholder="Até"><br>
+        <button onclick="pesquisar()">Pesquisar</button>
+        <button onclick="pesquisarEspc()">Pesquisar AC</button>
+        <select id="ac">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        </select><br>
+        <div id="conteudo2"></div>
+        `
+    }
+
+    function pesquisar(){
+        var notaMin = Number(inp_nota_min.value);
+        var notaMax = Number(inp_nota_max.value);
+        
+        var alunosTotais = listaNome.length;
+        var alunosListados = 0;
+
+        var maiorNotaAC1 = 0;
+        var menorNotaAC1 = 10;
+        var totalNotaAC1 = 0;
+        var mediaNotaAC1 = 0;
+
+        var maiorNotaAC2 = 0;
+        var menorNotaAC2 = 10;
+        var totalNotaAC2 = 0;
+        var mediaNotaAC2 = 0;
+
+        var maiorNotaAC3 = 0;
+        var menorNotaAC3= 10;
+        var totalNotaAC3 = 0;
+        var mediaNotaAC3 = 0;
+
+        if(notaMin >= 0 && notaMin <= 10 && notaMax >= 0 && notaMax <= 10 && notaMin <= notaMax){
+            conteudo2.innerHTML = ``;
+            for(var i = 0; i < listaNome.length; i++){
+                if(listaNotaAC1[i] >= notaMin && listaNotaAC1[i] <= notaMax){
+                    conteudo2.innerHTML += `O aluno ${listaNome[i]} ficou com a nota ${listaNotaAC1[i]} na AC1, ${listaNotaAC2[i]} na AC2, ${listaNotaAC3[i]} na AC3<br>`;  
+                    alunosListados ++;
+
+                    totalNotaAC1 += listaNotaAC1[i];
+                    totalNotaAC2 += listaNotaAC2[i];
+                    totalNotaAC3 += listaNotaAC3[i];
+
+                    if(listaNotaAC1[i] > maiorNotaAC1){
+                        maiorNotaAC1 = listaNotaAC1[i];
+                    }
+                    if(listaNotaAC1[i] < menorNotaAC1){
+                        menorNotaAC1 = listaNotaAC1[i];
+                    }
+
+                    if(listaNotaAC2[i] > maiorNotaAC2){
+                        maiorNotaAC2 = listaNotaAC2[i];
+                    }
+                    if(listaNotaAC2[i] < menorNotaAC2){
+                        menorNotaAC2 = listaNotaAC2[i];
+                    }
+
+                    if(listaNotaAC3[i] > maiorNotaAC3){
+                        maiorNotaAC3 = listaNotaAC3[i];
+                    }
+                    if(listaNotaAC3[i] < menorNotaAC3){
+                        menorNotaAC3 = listaNotaAC3[i];
+                    }
+                }
+            }
+
+            mediaNotaAC1 = totalNotaAC1/alunosListados;
+            mediaNotaAC2 = totalNotaAC2/alunosListados;
+            mediaNotaAC3 = totalNotaAC3/alunosListados;
+
+            conteudo2.innerHTML += `
+            Total de alunos registrados: ${alunosTotais}<br>
+            Total de alunos listado: ${alunosListados}<br> 
+            Maior Nota AC-1: ${maiorNotaAC1}<br> 
+            Maior Nota AC-2: ${maiorNotaAC2}<br> 
+            Maior Nota AC-3: ${maiorNotaAC3}<br> 
+            Menor Nota AC-1: ${menorNotaAC1}<br> 
+            Menor Nota AC-2: ${menorNotaAC2}<br> 
+            Menor Nota AC-3: ${menorNotaAC3}<br> 
+            Média da Nota AC-1: ${mediaNotaAC1}<br>
+            Média da Nota AC-2: ${mediaNotaAC2}<br>
+            Média da Nota AC-3: ${mediaNotaAC3}
+            `
+        }else{
+            alert("Intervalo de notas inválido");
+        }
+    }
+
+    function pesquisarEspc(){
+        var notaMin = Number(inp_nota_min.value);
+        var notaMax = Number(inp_nota_max.value);
+
+        var alunosTotais = listaNome.length;
+        var alunosListados = 0;
+
+        var notaAC = []
+        var totalAC = 0;
+
+        var maior = 0;
+        var menor = 10;
+        var media = 0;
+
+        var acSelected = Number(ac.value);
+        
+        if(acSelected == 1){
+            notaAC = listaNotaAC1;
+        }else if(acSelected == 2){
+            notaAC = listaNotaAC2;
+        }else{
+            notaAC = listaNotaAC3;
+        }
+
+        if(notaMin >= 0 && notaMin <= 10 && notaMax >= 0 && notaMax <= 10 && notaMin <= notaMax){
+            conteudo2.innerHTML = ``;
+            for(var i = 0; i < notaAC.length; i++){
+                if(notaAC[i] >= notaMin && notaAC[i] <= notaMax){
+                    conteudo2.innerHTML += `O aluno ${listaNome[i]} ficou com a nota ${notaAC[i]} na AC${acSelected}<br>`;  
+                    alunosListados ++;
+                    totalAC += notaAC[i];
+
+                    if(notaAC[i] > maior){
+                        maior = notaAC[i];
+                    }
+                    if(notaAC[i] < menor){
+                        menor = notaAC[i];
+                    }
+
+                }else{
+                    alert("Intervalo de notas inválido");
+                }
+            }
+            
+            media = totalAC/alunosListados;
+
+            conteudo2.innerHTML += `
+            Total de alunos registrados: ${alunosTotais}<br>
+            Total de alunos listado: ${alunosListados}<br> 
+            Maior Nota AC-${acSelected}: ${maior}<br>
+            Menor Nota AC-${acSelected}: ${menor}<br>
+            Média da Nota AC-${acSelected}: ${media}
+            `
+        }
+    }
+</script>

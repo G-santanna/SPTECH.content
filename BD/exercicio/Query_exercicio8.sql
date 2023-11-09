@@ -63,7 +63,7 @@ select * from cliente join venda on idCliente = venda.fkCliente;
 
 select * from cliente join venda on idCliente = venda.fkCliente where idCliente = 3;
 
-select * from cliente as indicador join cliente as indicado on indicado.fkIndicador = indicador.idCliente;
+select * from cliente as indicado join cliente as indicador on indicado.fkIndicador = indicador.idCliente;
 
 select * from cliente as indicador join cliente as indicado on indicado.fkIndicador = indicador.idCliente where indicador.idCliente = 1;
 
@@ -75,3 +75,13 @@ insert into cliente values
 (null, 'Matheus', 'matheus@email.com', null, null, 1);
 
 select * from cliente left join venda on fkCliente = idCliente;
+
+select min(preco), max(preco) from produto;
+
+select sum(preco) as Soma, round(avg(preco), 2) as Média from produto;
+
+select sum(distinct preco) from produto;
+
+select * from produto join carrinho on fkProduto = idProduto join venda on fkVenda = idVenda;
+select sum(preco) from produto join carrinho on fkProduto = idProduto join venda on fkVenda = idVenda;
+select sum(preco) from produto join carrinho on fkProduto = idProduto join venda on fkVenda = idVenda group by idVenda;

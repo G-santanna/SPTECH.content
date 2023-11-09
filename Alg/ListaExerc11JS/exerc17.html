@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Análise de performance de alunos - Registro</h1><br>
+    <span>Entre com o nome do aluno: </span> 
+    <input type="text" id="inp_nome"><br>
+    <span>Entre com a nota do aluno: </span>
+    <input type="number" id="inp_nota"><br>
+    <button onclick="registrar()">Registrar</button>
+    <button onclick="analisar()">Analisar</button><br>
+    <div id="conteudo"></div>
+
+
+</body>
+</html>
+<script>
+    var listaNome = [];
+    var listaNota = [];
+
+    function registrar(){
+        if(inp_nome.value.length > 0 && Number(inp_nota.value) >= 0 && Number(inp_nota.value) <= 10){
+            conteudo.innerHTML = ``;
+            var nome = inp_nome.value;
+            var nota = Number(inp_nota.value);
+            listaNome.push(nome);
+            listaNota.push(nota);
+            for(var i = 0; i < listaNome.length && i < listaNota.length; i++){
+                conteudo.innerHTML += `Aluno: ${listaNome[i]} Nota: ${listaNota[i]}<br>`;
+            }
+        }else{
+            alert("O campo nome deve estar preenchido e a nota deve ser entre 0 e 10!");
+        }
+    }
+
+    function analisar(){
+        document.querySelector("body").innerHTML = `
+        <h1>Análise de performance de alunos - Pesquisa</h1><br>
+        <span>Entre com o intervalo de notas: </span> 
+        <input type="number" id="inp_nota_min" placeholder="De">
+        <input type="number" id="inp_nota_max" placeholder="Até"><br>
+        <button onclick="pesquisar()">Pesquisar</button><br>
+        <div id="conteudo2"></div>
+        `
+    }
+
+    function pesquisar(){
+        var notaMin = Number(inp_nota_min.value);
+        var notaMax = Number(inp_nota_max.value);
+        
+        var alunosTotais = listaNome.length;
+        var alunosListados = 0;
+        var maiorNota = 0;
+        var menorNota = 10;
+        var totalNota = 0;
+        var mediaNota = 0;
+
+        if(notaMin >= 0 && notaMin <= 10 && notaMax >= 0 && notaMax <= 10 && notaMin <= notaMax){
+            for(var i = 0; i < listaNome.length && i < listaNota.length; i++){
+                if(listaNota[i] >= notaMin && listaNota[i] <= notaMax){
+                    conteudo2.innerHTML = ``;
+                    conteudo2.innerHTML += `O aluno ${listaNome[i]} ficou com a nota ${listaNota[i]}<br>`;  
+                    alunosListados ++;
+                    totalNota += listaNota[i];
+                    if(listaNota[i] > maiorNota){
+                        maiorNota = listaNota[i];
+                    }
+                    if(listaNota[i] < menorNota){
+                        menorNota = listaNota[i];
+                    }
+                }
+            }
+            mediaNota = totalNota/alunosListados;
+
+            conteudo2.innerHTML += `
+            Total de alunos registrados: ${alunosTotais}<br>
+            Total de alunos listado: ${alunosListados}<br> 
+            Maior Nota: ${maiorNota}<br> 
+            Menor Nota: ${menorNota}<br> 
+            Média da Nota: ${mediaNota}
+            `
+        }else{
+            alert("Intervalo de notas inválido");
+        }
+    }
+</script>
