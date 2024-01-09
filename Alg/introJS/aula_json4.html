@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    nome <input type="text" id="inp_nome"><br>
+    telefone <input type="text" id="inp_telefone"><br>
+    <button onclick="cadastrar()">Cadastrar Contato</button><br>
+    <div id="conteudo"></div>
+</body>
+</html>
+<script>
+    const contatos = []
+
+    function cadastrar(){
+
+        conteudo.innerHTML = ''
+
+        const nome = inp_nome.value
+        const telefone = inp_telefone.value
+
+        const contato = {
+            nome,
+            telefone
+        }
+
+        contatos.push(contato)
+        
+        for (let i = 0; i < contatos.length; i++) {
+            const contatoAtual = contatos[i];
+            conteudo.innerHTML += contatoAtual.nome+' | '+contatoAtual.telefone+'<br>';
+        }
+        
+        console.log(contatos)
+    }
+</script>

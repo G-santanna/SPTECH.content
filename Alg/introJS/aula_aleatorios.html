@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números Aleatórios</title>
+</head>
+<body>
+    Mínimo: <input type="text" id="input_min">
+    Máximo: <input type="text" id="input_max">
+    <button onclick="gerar_inputs()">Gerar Aleatório com base nas inputs</button>
+    <br><br>
+    <button onclick="gerar()">Gerar de 0 a 1</button>
+    <button onclick="gerar_5()">Gerar de 0 a 5</button>
+    <button onclick="gerar_2_ate_3()">Gerar de 2 a 3</button>
+    <button onclick="gerar_2_ate_10()">Gerar de 2 a 10</button>
+    
+    <div id="div_aleatorio"></div>
+</body>
+</html>
+
+<script>
+    function gerar() {
+        var aleatorio = Math.random(); // gera um número aleatório de 0 a 1 (nunca chega a 1!)
+        div_aleatorio.innerHTML = `Aleatório: ${aleatorio}`;
+    }
+    
+    function gerar_5() {
+        var aleatorio = Math.random() * 5; // gera um número aleatório de 0 a 5 (nunca chega a 5!)
+        div_aleatorio.innerHTML = `Aleatório: ${aleatorio}`;
+    }
+
+    function gerar_2_ate_3() {
+        var aleatorio = Math.random() + 2; // gera um número aleatório de 2 a 3 (nunca chega a 3!)
+        div_aleatorio.innerHTML = `Aleatório: ${aleatorio}`;
+    }
+
+    function gerar_2_ate_10() {
+        var aleatorio = Math.random() * 8 + 2; // gera um número aleatório de 2 a 10 (nunca chega a 10!)
+        div_aleatorio.innerHTML = `Aleatório: ${aleatorio}`;
+    }
+
+    function gerar_inputs() {
+        var min = Number(input_min.value); // min: 4
+        var max = Number(input_max.value); // max: 10
+
+        var intervalo = max - min; // intervalo: 6
+        
+        var aleatorio = Math.random() * intervalo + min; 
+        // gera um número de 0 a 5.999 e soma 4, transformando o número de 3 a 9.999
+
+        div_aleatorio.innerHTML = `
+            Aleatório: ${aleatorio} <br>
+            Com 2 decimais: ${aleatorio.toFixed(2)} <br>
+            Inteiro (arredondado): ${aleatorio.toFixed(0)} <br>
+        `;
+        // .toFixed(X) coloca X como o número de casas decimais, arredondando para o número mais próximo ao cortar as casas decimais
+    }
+
+</script>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON - JS Object Notation</title>
+  </head>
+  <body>
+    Nome <input type="text" id="nome"><br>
+    Idade <input type="number" id="idade"><br>
+    Endereco <input type="text" id="rua"><input type="number"id="numero"><br>
+    <button onclick="exibir()">Exibir dados</button>
+    <div id="info"></div>
+  </body>
+</html>
+<script>
+  function exibir(){
+
+      const pessoa = {
+        nome: nome.value,
+        idade: idade.value,
+        endereco:{
+            rua: rua.value,
+            numero: numero.value
+        },
+      }
+
+      info.innerHTML = `
+      Olá, ${pessoa.nome}!<br>
+      Sua idade é ${pessoa.idade}<br>
+      Você mora na rua ${pessoa.endereco.rua} no número ${pessoa.endereco.numero}<br>
+      `
+  }
+</script>

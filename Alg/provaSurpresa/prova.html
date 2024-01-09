@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do astronauta <input type="text" id="inp_nome"><br>
+    Quantidade de dias <input type="text" id="inp_qnt_dias"><br>
+    Quantidade de horas <input type="text" id="inp_qnt_horas"><br>
+    Quantidade de minutos <input type="text" id="inp_qnt_minutos"><br>
+    <button onclick="cadastrar()">Registrar viagem</button>
+    <button onclick="relatorio()">Relatório de viagens</button><br>
+    <div id="conteudo">
+    </div>
+</body>
+</html>
+<script>
+
+    var listaNome = [];
+    var listaDias = [];
+    var listaHoras = [];
+    var listaMinutos = [];
+
+    function cadastrar(){
+
+        var nome = inp_nome.value
+        var dias = Number(inp_qnt_dias.value);
+        var horas = Number(inp_qnt_horas.value);
+        var minutos = Number(inp_qnt_minutos.value);
+
+        if(nome != ""){
+            if(dias > 0 || horas > 0 || minutos > 0){
+                listaNome.push(nome);
+                listaDias.push(dias);
+                listaHoras.push(horas);
+                listaMinutos.push(minutos);
+            }else{
+                alert("Informe um tempo de viagem válido!");
+            }
+        }else{
+            alert("Nome inválido")
+        }
+    }
+
+    function relatorio(){
+        conteudo.innerHTML = ``;
+
+        for(var i = 0; i < listaNome.length; i++){
+            var minutosFora = (listaDias[i]*49*1440)+(listaHoras[i]*49*60)+(listaMinutos[i]*49); 
+            console.log(minutosFora);
+            
+            var anosTerra = minutosFora/525600;
+
+            var bartImg = ``
+            
+            if(anosTerra < 13){
+                bartImg = `<img src="bart13.png">`
+            }else if(anosTerra < 30){
+                bartImg = `<img src="bart30.png">`
+            }else if(anosTerra < 65){
+                bartImg = `<img src="bart65.png">`
+            }else if(anosTerra < 100){
+                bartImg = `<img src="bart100.png">`
+            }else{
+                bartImg = `<img src="bart999.png">`
+            }
+    
+            conteudo.innerHTML += `
+            Viagem <b>${i+1}</b>:<br>
+            Astronauta <b>${listaNome[i]}</b> ficou fora por pelo menos ${anosTerra.toFixed(0)} anos no tempo da Terra.<br>
+            A criança que nasceu quando ele saiu provavelmente está assim:<br>
+            ${bartImg}<br>
+            `
+            
+        }
+
+
+
+
+    }
+</script>

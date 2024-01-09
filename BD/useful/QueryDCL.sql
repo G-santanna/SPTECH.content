@@ -1,8 +1,10 @@
-create user 'supervisor'@'localhost' identified by '#gf202302';
+create user 'supervisor'@'localhost' identified by '#gf202302';-- Sintaxo para criar um usuário
 
-grant SELECT, UPDATE, DELETE, INSERT on sptechb.* to 'supervisor'@'localhost';
+grant SELECT, UPDATE, DELETE, INSERT on sptechb.* to 'supervisor'@'localhost';-- Definir as permissões dele
 
-flush privileges;
+flush privileges;-- Aplicar as alterações
+
+-- Daqui pra baixo são as outras sintaxes de DCL
 
 revoke SELECT, UPDATE, DELETE, INSERT on sptechb.* from 'supervisor'@'localhost';
 
